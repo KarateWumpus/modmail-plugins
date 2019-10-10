@@ -97,7 +97,7 @@ class MemberResource:
     def userstatus_embed(self):
         """Create an embed that shows the status of a member"""
 
-        m: discord.Member = self.member
+        member: discord.Member = self.member
             
         if member.status.name == "online":
              statuscolor = "0x7ccca5"
