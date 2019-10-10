@@ -93,3 +93,28 @@ class MemberResource:
         embed.set_footer(text=f"User ID: {m.id}")
 
         return embed
+
+    def status_embed(self):
+        """Create an embed that shows the status of a member"""
+
+        m: discord.Member = self.member
+            
+        if member.status == "online":
+            embed = discord.Embed(color=#7ccca5)
+            embed.set_author(name=f"{str(m)}'s Status")
+            embed.set_image(url=https://cdn.discordapp.com/emojis/615846944341884948.png?v=1)
+        elif member.status == "idle":
+            embed = discord.Embed(color=#fca41b)
+            embed.set_author(name=f"{str(m)}'s Status")
+            embed.set_image(url=https://cdn.discordapp.com/emojis/587932578221129748.png?v=1)
+        elif member.status == "dnd":
+            embed = discord.Embed(color=#f44444)
+            embed.set_author(name=f"{str(m)}'s Status")
+            embed.set_image(url=https://cdn.discordapp.com/emojis/500353506474065920.png?v=1)
+        else:
+            embed = discord.Embed(color=#9da4ad)
+            embed.set_author(name=f"{str(m)}'s Status")
+            embed.set_image(url=https://cdn.discordapp.com/emojis/606534231492919312.png?v=1)
+                                  
+        embed.add_field(name="Status", value=m.status.name.title())
+        embed.set_footer(text=f"User ID: {m.id}")
