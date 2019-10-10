@@ -94,7 +94,7 @@ class MemberResource:
 
         return embed
 
-    def status_embed(self):
+    def userstatus_embed(self):
         """Create an embed that shows the status of a member"""
 
         m: discord.Member = self.member
