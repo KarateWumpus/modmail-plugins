@@ -172,7 +172,7 @@ class Stats(commands.Cog):
     async def userstatus(self, ctx, *, member: typing.Union[discord.Member, str] = None):
         """Get the status of a member."""
 
-        embed = MemberResource(ctx, member).status_embed()
+        embed = MemberResource(ctx, member).userstatus_embed()
         await ctx.send(embed=embed)
 
 
