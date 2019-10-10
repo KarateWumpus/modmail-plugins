@@ -99,29 +99,25 @@ class MemberResource:
 
         m: discord.Member = self.member
             
-        embed = discordEmbed(color=statuscolor)  
-        
-        if member.status == "online":
-            statuscolor = #7ccca5
-        elif member.status == "idle":
-            statuscolor = #fca41b)
-        elif member.status == "dnd":
-            stauscolor = #f44444
+        if member.status.name == "online":
+             statuscolor = "0x7ccca5"
+        elif member.status.name == "idle":
+             statuscolor = "0xfca41b"
+        elif member.status.name == "dnd":
+             statuscolor = "0xf44444"
         else:
-            statuscolor = #9da4ad
-            
-        
-        if member.status == "online":
-            embed.set_image(url=https://cdn.discordapp.com/emojis/615846944341884948.png?v=1)
-        elif member.status == "idle":
-            embed.set_image(url=https://cdn.discordapp.com/emojis/587932578221129748.png?v=1)
-        elif member.status == "dnd":
-            embed.set_image(url=https://cdn.discordapp.com/emojis/500353506474065920.png?v=1)
+             statuscolor = "0x9da4ad"
+        embed = discord.Embed(color=Color(int(statuscolor, 0)))
+        if member.status.name == "online":
+            embed.set_image(url='https://cdn.discordapp.com/emojis/615846944341884948.png?v=1')
+        elif member.status.name == "idle":
+            embed.set_image(url='https://cdn.discordapp.com/emojis/587932578221129748.png?v=1')
+        elif member.status.name == "dnd":
+            embed.set_image(url='https://cdn.discordapp.com/emojis/500353506474065920.png?v=1')
         else:
-            embed.set_image(url=https://cdn.discordapp.com/emojis/606534231492919312.png?v=1)
-                                  
-        embed.set_author(name=f"{str(m)}'s Status")
-        embed.add_field(name="Status", value=m.status.name.title())
-        embed.set_footer(text=f"User ID: {m.id}")
+            embed.set_image(url='https://cdn.discordapp.com/emojis/606534231492919312.png?v=1')
+        embed.set_author(name=f"{str(member)}'s Status")
+        embed.add_field(name="Status", value=member.status.name.title())
+        embed.set_footer(text=f"User ID: {member.id}")
 
         return embed
