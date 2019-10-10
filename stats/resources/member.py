@@ -118,3 +118,5 @@ class MemberResource:
                                   
         embed.add_field(name="Status", value=m.status.name.title())
         embed.set_footer(text=f"User ID: {m.id}")
+
+        return embed
