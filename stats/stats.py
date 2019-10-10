@@ -169,7 +169,7 @@ class Stats(commands.Cog):
     
     @commands.command()
     @checks.has_permissions(PermissionLevel.REGULAR)
-    async def avatar(self, ctx, *, member: typing.Union[discord.Member, str] = None):
+    async def userstatus(self, ctx, *, member: typing.Union[discord.Member, str] = None):
         """Get the status of a member."""
 
         embed = MemberResource(ctx, member).status_embed()
