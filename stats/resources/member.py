@@ -108,6 +108,5 @@ class MemberResource:
         embed.set_author(name=f"{str(m)}'s Status")
         embed.add_field(name='Status',value=m.status.name.title())
         embed.set_footer(text=f"User ID: {m.id}")
-        await ctx.send(embed=embed)
 
         return embed
