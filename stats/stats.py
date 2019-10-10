@@ -164,6 +164,16 @@ class Stats(commands.Cog):
         """Get the stats of your server"""
 
         await ctx.invoke(self.bot.get_command("server"))
+        
+    # Status
+    
+    @commands.command()
+    @checks.has_permissions(PermissionLevel.REGULAR)
+    async def avatar(self, ctx, *, member: typing.Union[discord.Member, str] = None):
+        """Get the status of a member."""
+
+        embed = MemberResource(ctx, member).status_embed()
+        await ctx.send(embed=embed)
 
 
 def setup(bot):
