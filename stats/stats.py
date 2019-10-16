@@ -167,7 +167,7 @@ class Stats(commands.Cog):
         
     # Status
     
-    @commands.command()
+    @commands.command(aliases="us")
     @checks.has_permissions(PermissionLevel.REGULAR)
     async def userstatus(self, ctx, *, member: typing.Union[discord.Member, str] = None):
         """Get the status of a member."""
