@@ -133,9 +133,9 @@ class Stats(commands.Cog):
 
     # Role
 
-    @commands.command(aliases=["roleinfo"])
+    @commands.command()
     @checks.has_permissions(PermissionLevel.REGULAR)
-    async def role(self, ctx, *, role: discord.Role = None):
+    async def roleinfo(self, ctx, *, role: discord.Role = None):
         """Get the stats of a role."""
 
         embed = RoleResource(ctx, role).role_embed()
