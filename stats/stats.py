@@ -90,7 +90,7 @@ class Stats(commands.Cog):
     async def emoji(self, ctx, *, emoji: discord.Emoji):
         """Get the stats of an emoji."""
 
-        embed = EmojiResource(ctx, emoji, self.bot.main_color).emoji_embed()
+        embed = await EmojiResource(ctx, emoji, self.bot.main_color).emoji_embed()
         await ctx.send(embed=embed)
 
     @stats.command(name="emoji")
