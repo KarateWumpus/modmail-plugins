@@ -9,18 +9,21 @@ class EmojiResource:
         self.emoji = emoji
         self.color = color
 
-    def emoji_embed(self):
+    async def emoji_embed(self):
         """Create an embed containing the emoji's information."""
 
-        e: discord.Emoji = self.emoji
+        e: discord.Emoji = self.emoji     
 
         embed = discord.Embed(color=self.color)
+        
+        emote = await e.guild.fetch_emoji(e.id) 
+        if emote.user:
+            embed.add_field(name="Creator", value=emote.user.mention)
+            embed.add_field(name="Creator's ID", value=emote.user.id)
 
         embed.set_author(name=f"{e.name.title()}'s Stats")
 
         embed.add_field(name="Created", value=format_time(e.created_at))
-        embed.add_field(name="Guild Name", value=e.guild.name)
-        embed.add_field(name="Guild ID", value=e.guild_id)
         embed.add_field(name="Animated", value=e.animated)
         embed.add_field(name="Managed", value=e.managed)
 
