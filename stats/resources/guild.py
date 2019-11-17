@@ -16,7 +16,7 @@ class GuildResource:
 
         bots = len([m for m in g.members if m.bot])
         humans = len([m for m in g.members if not m.bot])
-        online = len([m for m in g.members if not m.status != discord.Status.offline])
+        online = len([m for m in g.members if m.status != discord.Status.offline])
 
         embed = discord.Embed(color=self.color)
 
