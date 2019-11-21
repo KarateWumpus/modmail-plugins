@@ -6,7 +6,7 @@ from core import checks
 from core.models import PermissionLevel
 
 
-class Random_api(commands.Cog):
+class RandomApi(commands.Cog):
     """This plugin uses https://some-random-api.ml to get a lotta random stuff"""
 
     def __init__(self, bot):
@@ -50,5 +50,60 @@ class Random_api(commands.Cog):
         await ctx.send(embed = embed)
 
 
+    @commands.command()
+    @checks.has_permissions(PermissionLevel.REGULAR)
+    async def fox(self, ctx):
+        """Get a Fox fact and a Fox image"""
+        
+        getfact = await self.bot.session.get('https://some-random-api.ml/facts/fox')
+        getimg = await self.bot.session.get('https://some-random-api.ml/img/fox')
+        
+        facttext = await getfact.text()
+        imgtext = await getimg.text()
+        
+        factjson = json.loads(facttext)
+        imgjson = json.loads(imgtext)
+        
+        embed = discord.Embed(title = "Fox", description = factjson["fact"], color = 0x7289da)
+        embed.set_image(url=imgjson["link"])
+        await ctx.send(embed = embed)
+
+    @commands.command()
+    @checks.has_permissions(PermissionLevel.REGULAR)
+    async def koala(self, ctx):
+        """Get a Koala fact and a Koala image"""
+        
+        getfact = await self.bot.session.get('https://some-random-api.ml/facts/koala')
+        getimg = await self.bot.session.get('https://some-random-api.ml/img/koala')
+        
+        facttext = await getfact.text()
+        imgtext = await getimg.text()
+        
+        factjson = json.loads(facttext)
+        imgjson = json.loads(imgtext)
+        
+        embed = discord.Embed(title = "Koala", description = factjson["fact"], color = 0x7289da)
+        embed.set_image(url=imgjson["link"])
+        await ctx.send(embed = embed)
+
+    @commands.command()
+    @checks.has_permissions(PermissionLevel.REGULAR)
+    async def panda(self, ctx):
+        """Get a Panda fact and a Panda image"""
+        
+        getfact = await self.bot.session.get('https://some-random-api.ml/facts/panda')
+        getimg = await self.bot.session.get('https://some-random-api.ml/img/panda')
+        
+        facttext = await getfact.text()
+        imgtext = await getimg.text()
+        
+        factjson = json.loads(facttext)
+        imgjson = json.loads(imgtext)
+        
+        embed = discord.Embed(title = "Koala", description = factjson["fact"], color = 0x7289da)
+        embed.set_image(url=imgjson["link"])
+        await ctx.send(embed = embed)
+
+        
 def setup(bot):
-    bot.add_cog(Random_api(bot))
+    bot.add_cog(RandomApi(bot))
