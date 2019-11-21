@@ -48,3 +48,7 @@ class random-api(commands.Cog):
         embed = discord.Embed(title = "Cat", description = factjson["fact"], color = 0x7289da)
         embed.set_image(url=imgjson["link"])
         await ctx.send(embed = embed)
+
+
+def setup(bot):
+    bot.add_cog(random-api(bot))
