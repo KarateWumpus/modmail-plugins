@@ -6,7 +6,7 @@ from core import checks
 from core.models import PermissionLevel
 
 
-class random-api(commands.Cog):
+class Random_api(commands.Cog):
     """This plugin uses https://some-random-api.ml to get a lotta random stuff"""
 
     def __init__(self, bot):
@@ -51,4 +51,4 @@ class random-api(commands.Cog):
 
 
 def setup(bot):
-    bot.add_cog(random-api(bot))
+    bot.add_cog(Random_api(bot))
