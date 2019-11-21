@@ -17,8 +17,8 @@ class Random_api(commands.Cog):
     async def dog(self, ctx):
         """Get a Dog fact and a Dog image"""
         
-        getfact = await bot.session.get('https://some-random-api.ml/facts/dog')
-        getimg = await bot.session.get('https://some-random-api.ml/img/dog')
+        getfact = await self.bot.session.get('https://some-random-api.ml/facts/dog')
+        getimg = await self.bot.session.get('https://some-random-api.ml/img/dog')
         
         facttext = await getfact.text()
         imgtext = await getimg.text()
@@ -36,8 +36,8 @@ class Random_api(commands.Cog):
     async def cat(self, ctx):
         """Get a Cat fact and a Cat image"""
         
-        getfact = await bot.session.get('https://some-random-api.ml/facts/cat')
-        getimg = await bot.session.get('https://some-random-api.ml/img/cat')
+        getfact = await self.bot.session.get('https://some-random-api.ml/facts/cat')
+        getimg = await self.bot.session.get('https://some-random-api.ml/img/cat')
         
         facttext = await getfact.text()
         imgtext = await getimg.text()
