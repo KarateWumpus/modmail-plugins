@@ -13,7 +13,7 @@ class RoleMembersResource:
         if self.role is None:
             self.role = self.ctx.author.top_role
 
-    def _get_role():
+    def _get_role(self):
         """Fetch a role by its name."""
 
         if isinstance(self.role, discord.Role):
