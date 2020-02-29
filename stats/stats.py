@@ -123,7 +123,7 @@ class Stats(commands.Cog):
 
     @commands.command(aliases=["rolemembers"])
     @checks.has_permissions(PermissionLevel.REGULAR)
-    async def members(self, ctx, *, role: discord.Role = None):
+    async def members(self, ctx, *, role: typing.Union[discord.Role, str] = None):
         """Get info about a role"""
 
         embeds = RoleMembersResource(ctx, role).role_members_embed()
