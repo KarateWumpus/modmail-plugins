@@ -135,7 +135,7 @@ class Stats(commands.Cog):
 
     @commands.command()
     @checks.has_permissions(PermissionLevel.REGULAR)
-    async def roleinfo(self, ctx, *, role: discord.Role = None):
+    async def roleinfo(self, ctx, *, role: typing.Union[discord.Role, str] = None):
         """Get the stats of a role."""
 
         embed = RoleResource(ctx, role).role_embed()
@@ -143,7 +143,7 @@ class Stats(commands.Cog):
 
     @stats.command(name="role")
     @checks.has_permissions(PermissionLevel.REGULAR)
-    async def stats_role(self, ctx, *, role: discord.Role = None):
+    async def stats_role(self, ctx, *, role: typing.Union[discord.Role, str] = None):
         """Get the stats of a role."""
 
         await ctx.invoke(self.bot.get_command("roleinfo"), role=role)
@@ -164,9 +164,9 @@ class Stats(commands.Cog):
         """Get the stats of your server"""
 
         await ctx.invoke(self.bot.get_command("server"))
-        
+
     # Status
-    
+
     @commands.command(aliases=["us"])
     @checks.has_permissions(PermissionLevel.REGULAR)
     async def userstatus(self, ctx, *, member: typing.Union[discord.Member, str] = None):

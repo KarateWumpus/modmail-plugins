@@ -8,8 +8,23 @@ class RoleResource:
         self.ctx = ctx
         self.role = role
 
+        self._get_role()
+
         if self.role is None:
             self.role = self.ctx.author.top_role
+
+    def _get_role():
+        """Fetch a role by its name."""
+
+        if isinstance(self.role, discord.Role):
+            return
+
+        if self.role is None:
+            return
+
+        self.role = discord.utils.find(
+            lambda r: r.name.lower().startswith(self.role.lower()), self.ctx.guild.roles
+        )
 
     def role_embed(self):
         """Create an embed containing the role's information."""
