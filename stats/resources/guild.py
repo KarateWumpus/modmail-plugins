@@ -16,7 +16,7 @@ class GuildResource:
 
         bots = len([m for m in g.members if m.bot])
         humans = len([m for m in g.members if not m.bot])
-        online = len([m for m in g.members if not m.status != discord.Status.offline])
+        online = len([m for m in g.members if m.status != discord.Status.offline])
 
         embed = discord.Embed(color=self.color)
 
@@ -30,7 +30,7 @@ class GuildResource:
         embed.add_field(name="Text Channels", value=len(g.text_channels))
         embed.add_field(name="Voice Channels", value=len(g.voice_channels))
         embed.add_field(name="Roles", value=len(g.roles))
-        embed.add_field(name="Server Region", value=g.region.name.title())
+        embed.add_field(name="Server Region", value=g.region.title())
         embed.add_field(name="Server Owner", value=g.owner.mention)
         embed.add_field(name="Created", value=format_time(g.created_at))
 
